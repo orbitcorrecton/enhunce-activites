@@ -54,15 +54,15 @@ class ActivitiesIndicator extends PanelMenu.Button {
         this._container.add_actor(this._iconBox);
         
         let icon = new St.Icon({
-        //icon_name: 'start-here-symbolic',
-        gicon : Gio.icon_new_for_string( Me.dir.get_path() + '/icon-symbolic.svg' ),
+        icon_name: 'start-here-symbolic',
+        //gicon : Gio.icon_new_for_string( Me.dir.get_path() + '/icon-symbolic.svg' ),
         icon_size: PANEL_ICON_SIZE,
         style_class: 'activities-icon',
         });
         this._iconBox.set_child(icon);
         
         this._label = new St.Label({
-            text: _('Ubuntu'),
+            text: _('Activities'),
             y_align: Clutter.ActorAlign.CENTER,
         });
         this._container.add_actor(this._label);
