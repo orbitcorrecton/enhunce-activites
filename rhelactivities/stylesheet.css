@@ -1,0 +1,6 @@
+.panel-logo-icon {
+-st-icon-style: symbolic;
+  padding-right: .4em;
+  icon-size: 1em; }
+  .panel-logo-icon:hover {
+    color: white; }
