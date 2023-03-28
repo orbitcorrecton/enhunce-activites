@@ -1,0 +1,11 @@
+{
+  "name": "Enhunce Activities",
+  "description": "Enhunce activities button",
+  "uuid": "enhunceactivities@github.com.orbitcorrection",
+  "shell-version": [
+    "40",
+    "41",
+    "42",
+    "43"
+  ]
+}
