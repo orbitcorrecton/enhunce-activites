@@ -1,0 +1,12 @@
+{
+  "name": "Enhunce Activities",
+  "description": "Add an icon to the ActivitiesButton.  It is based on gnome-shell js and RHEL gnome-shell patch.  And, some features are added.",
+  "uuid": "enhunceactivitiese@github.com.orbitcorrection",
+  "shell-version": [
+    "40",
+    "41",
+    "42",
+    "43"
+  ],
+  "url": "https://github.com/orbitcorrecton/enhunce-activites/tree/experimental"
+}
