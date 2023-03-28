@@ -28,8 +28,6 @@ const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 
-var BUTTON_DND_ACTIVATION_TIMEOUT = 250;
-
 
 
 const ActivitiesIndicator = GObject.registerClass(
@@ -44,11 +42,11 @@ class ActivitiesIndicator extends PanelMenu.Button {
            in your language, you can use the word for "Overview". */
 
         let box = new St.BoxLayout();
-        this.add_actor(box);
+        this.actor.add_actor(box);
         
         let iconFile = Gio.File.new_for_path(Me.dir.get_path() + '/icons/start-here-symbolic.svg');
         this._icon = new St.Icon({ gicon: new Gio.FileIcon({ file: iconFile }),
-                                   style_class: 'panel-logo-icon', });
+                                   style_class: 'panel-logo-icon',});
         box.add_actor(this._icon);
         
         this._label = new St.Label({
@@ -59,12 +57,11 @@ class ActivitiesIndicator extends PanelMenu.Button {
 
         this.label_actor = this._label;
 
-        this._showingSignal = Main.overview.connect('showing', () => {
+        Main.overview.connect('showing', () => {
             this.add_style_pseudo_class('overview');
             this.add_accessible_state(Atk.StateType.CHECKED);
-        });        
-        
-        this._hidingSignal = Main.overview.connect('hiding', () => {
+        });
+        Main.overview.connect('hiding', () => {
             this.remove_style_pseudo_class('overview');
             this.remove_accessible_state(Atk.StateType.CHECKED);
         });
@@ -128,27 +125,7 @@ class ActivitiesIndicator extends PanelMenu.Button {
         this._xdndTimeOut = 0;
         return GLib.SOURCE_REMOVE;
     }
-    
-     _onDestroy() {
-        if (this._showingSignal) {
-            Main.overview.disconnect(this._showingSignal);
-            this._showingSignal = null;
-        }
-
-        if (this._hidingSignal) {
-            Main.overview.disconnect(this._hidingSignal);
-            this._hidingSignal = null;
-        }
-
-        if (this._xdndTimeOut) {
-            GLib.Source.remove(this._xdndTimeOut);
-            this._xdndTimeOut = null;
-        }
-        
-        super.destroy();
-    }
 });
-
 
 class Extension {
     constructor(uuid) {
@@ -157,17 +134,16 @@ class Extension {
 
     enable() {
         Main.panel.statusArea['activities'].hide();
-        
         this._indicator = new ActivitiesIndicator();
         Main.panel.addToStatusArea(this._uuid, this._indicator, 0, 'left');
-}
+    }
 
-    disable() {        
+    disable() {
         this._indicator.destroy();
         this._indicator = null;
-        
-        if (Main.sessionMode.currentMode !== 'unlock-dialog')
-            Main.panel.statusArea['activities'].show();
+        if(Main.sessionMode.currentMode !== 'unlock-dialog') {
+        Main.panel.statusArea['activities'].show();
+       }
     }
 }
 
