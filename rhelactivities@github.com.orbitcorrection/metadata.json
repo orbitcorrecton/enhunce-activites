@@ -1,0 +1,11 @@
+{
+  "name": "RHEL Activities",
+  "description": "Add an icon to the ActivitiesButton  Based on gnome-shell panel.js and RHEL gnome-shell patch  And, Add some feature",
+  "uuid": "rhelactivities@github.com.orbitcorrection",
+  "shell-version": [
+    "40",
+    "41",
+    "42",
+    "43"
+  ]
+}
