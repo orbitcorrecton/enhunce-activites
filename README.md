@@ -1,4 +1,4 @@
-# Activities icon & label
+# Activities Icon & Label
 How to edit 
   
 1. Download this extension above and extract. 
