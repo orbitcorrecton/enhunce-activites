@@ -1,2 +1,4 @@
-# Enhunce-Activites
-This is a gnome-shell extension.
+# Activities icon & label
+How to edit
+
+1. Download 
