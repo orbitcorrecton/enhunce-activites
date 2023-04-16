@@ -1,4 +1,5 @@
 # Activities Icon & Label
+SPECIAL FEATURE  
 How to edit 
   
 1. Download this extension above and extract it. 
