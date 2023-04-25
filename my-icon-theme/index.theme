@@ -2,7 +2,7 @@
 Name=my-icon-theme
 Comment=My Icon Theme
 Example=folder
-Inherits=Adwaita
+Inherits=Adwaita44.0
 
 # KDE Specific Stuff
 DisplayDepth=32
